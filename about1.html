@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewell - Our Story & Heritage</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* APPLIED 60-30-10 COLOR PALETTE */
+        :root {
+            --bg-color: #F4EFEA;
+            --text-primary: #4A0E17;
+            --text-secondary: #8C4A5D;
+            --accent-gold: #D4AF37;
+
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================================
+           NAVBAR 
+           ========================================= */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(244, 239, 234, 0.95) 0%, rgba(244, 239, 234, 0) 100%);
+        }
+
+        .logo {
+            flex: 1;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .auth-buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-center-pill {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--text-primary);
+            border-radius: 50px;
+            height: 45px;
+            width: 120px;
+            overflow: hidden;
+            cursor: pointer;
+            background: transparent;
+            transition: 0.3s background-color;
+        }
+
+        .nav-center-pill:hover {
+            background: rgba(74, 14, 23, 0.03);
+        }
+
+        .menu-btn-text {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2.5rem;
+            align-items: center;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+            transition: 0.3s;
+        }
+
+        .login-btn {
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 0.5rem 1.5rem;
+            transition: 0.3s;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .nav-btn {
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: 0.3s;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: var(--text-primary);
+        }
+
+        /* =========================================
+           ABOUT HERO SECTION
+           ========================================= */
+        .about-hero {
+            padding: 12rem 8rem 6rem 8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .text-mask-container {
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 5.5rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            line-height: 1.1;
+            transform: translateY(100%);
+        }
+
+        .about-hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            line-height: 1.8;
+            margin-bottom: 4rem;
+        }
+
+        .hero-banner-wrapper {
+            width: 100%;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        }
+
+        .hero-banner-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.2);
+        }
+
+        .heritage-badge {
+            position: absolute;
+            bottom: -50px;
+            right: 10%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--text-primary);
+            z-index: 10;
+        }
+
+        .heritage-badge span {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-primary);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* =========================================
+           CORE VALUES SECTION
+           ========================================= */
+        .values-section {
+            padding: 8rem 8rem;
+            background: #fff;
+            margin-top: 4rem;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .values-header h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(74, 14, 23, 0.1);
+            border-radius: 15px;
+            transition: 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-color);
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background: rgba(212, 175, 55, 0.05);
+            transition: 0.4s ease;
+            z-index: 1;
+        }
+
+        .value-card:hover::before {
+            height: 100%;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 30px rgba(74, 14, 23, 0.05);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            transition: 0.4s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.2);
+            color: var(--text-primary);
+        }
+
+        .value-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* =========================================
+           THE PROCESS
+           ========================================= */
+        .process-section {
+            padding: 8rem 8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            background: rgba(74, 14, 23, 0.2);
+            z-index: 0;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .process-content {
+            width: 42%;
+        }
+
+        .process-number {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            font-style: italic;
+            color: rgba(212, 175, 55, 0.3);
+            line-height: 1;
+            margin-bottom: -1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-content h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .process-img-wrapper {
+            width: 45%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(74, 14, 23, 0.1);
+            clip-path: inset(0 100% 0 0);
+        }
+
+        .process-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(0.2) contrast(1.1);
+        }
+
+        /* =========================================
+           QUOTE SECTION
+           ========================================= */
+        .quote-section {
+            padding: 8rem 4rem;
+            text-align: center;
+            background: var(--text-primary);
+            color: var(--bg-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::after {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-heading);
+            font-size: 25rem;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+        }
+
+        .quote-text {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 2.5rem;
+            line-height: 1.4;
+            max-width: 900px;
+            margin: 0 auto 2rem auto;
+            color: var(--accent-gold);
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .quote-author span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        /* =========================================
+           NEW UPDATED FOOTER DESIGN
+           ========================================= */
+        .site-footer {
+            background-color: #0d0b0a;
+            /* Dark sleek background */
+            color: #ebeae7;
+            padding: 8rem 8rem 4rem 8rem;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-body);
+        }
+
+        /* Decorative background elements matching the image */
+        .footer-decor-item {
+            position: absolute;
+            opacity: 0.8;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .footer-decor-tl {
+            top: -30px;
+            left: -30px;
+            width: 250px;
+            transform: rotate(-15deg);
+        }
+
+        .footer-decor-tr {
+            top: 20px;
+            right: -50px;
+            width: 280px;
+        }
+
+        /* Plus signs */
+        .footer-plus {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .plus-left {
+            top: 25%;
+            left: 10%;
+        }
+
+        .plus-right {
+            top: 40%;
+            right: 5%;
+        }
+
+        .footer-main-heading {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 4.8rem;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+            margin-bottom: 7rem;
+            color: #d1cbc1;
+            /* Soft off-white to match image */
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-middle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6rem;
+            padding-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-tagline {
+            flex: 1;
+        }
+
+        .footer-tagline h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            color: #f4f4f4;
+        }
+
+        .footer-links-grid {
+            flex: 2;
+            display: flex;
+            justify-content: flex-end;
+            gap: 4rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-column a {
+            font-size: 0.75rem;
+            color: #9c9a96;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-gold);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 1.5px;
+            color: #fff;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-brand span {
+            font-size: 1rem;
+            font-family: var(--font-body);
+            margin-left: 2px;
+            margin-top: -2px;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: #9c9a96;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social-links a {
+            color: #d1cbc1;
+            font-size: 1rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .footer-middle-row {
+                flex-direction: column;
+                gap: 4rem;
+            }
+
+            .footer-links-grid {
+                justify-content: flex-start;
+                width: 100%;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .footer-main-heading {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo"><i class="fa-solid fa-snowflake"></i> Jewell</div>
+        <div class="nav-center-pill">
+            <div class="menu-btn-text"><i class="fa-solid fa-bars-staggered"></i> MENU</div>
+            <nav class="nav-links">
+                <a href="#">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">Catlogue</a>
+            </nav>
+        </div>
+        <div class="auth-buttons">
+            <a href="#" class="login-btn">Log In</a>
+            <a href="#" class="get-started-btn nav-btn">Get Started</a>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="text-mask-container">
+            <h1 class="gsap-hero-title">Crafting Elegance<br>Since 1995</h1>
+        </div>
+        <p class="gsap-hero-desc">For over two decades, Jewell has been synonymous with unparalleled craftsmanship and
+            timeless design. We believe that every piece of jewelry carries a story, a memory, and a legacy.</p>
+
+        <div class="hero-banner-wrapper gsap-hero-banner">
+            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=1600&auto=format&fit=crop"
+                alt="Jewelry Crafting" class="gsap-parallax-img">
+            <div class="heritage-badge">
+                <span>Authentic<br>Heritage</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="values-header gsap-values-up">
+            <h2>Our Pillars of Excellence</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-card gsap-value-card">
+                <i class="fa-regular fa-gem value-icon"></i>
+                <h3>Ethical Sourcing</h3>
+                <p>We are committed to sourcing diamonds and precious metals only from verified, conflict-free channels,
+                    ensuring sustainability and ethical practices.</p>
+            </div>
+            <div class="value-card gsap-value-card">
+                <i class="fa-solid fa-hammer value-icon"></i>
+                <h3>Master Craftsmanship</h3>
+                <p>Every piece is forged by master artisans who combine traditional techniques with modern precision,
+                    resulting in flawless masterpieces.</p>
+            </div>
+            <div class="value-card gsap-value-card">
+                <i class="fa-regular fa-clock value-icon"></i>
+                <h3>Timeless Design</h3>
+                <p>We do not follow fleeting trends. Our designs are created to transcend time, becoming cherished
+                    heirlooms passed down through generations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="values-header gsap-values-up" style="margin-bottom: 4rem;">
+            <h2>The Art of Creation</h2>
+        </div>
+
+        <div class="process-step">
+            <div class="process-content gsap-process-text-left">
+                <div class="process-number">01</div>
+                <h3>The Vision</h3>
+                <p>It begins with a sketch. Our lead designers draw inspiration from architecture, nature, and history
+                    to conceptualize forms that balance delicate grace with structural integrity.</p>
+            </div>
+            <div class="process-img-wrapper gsap-process-img-right">
+                <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=800&auto=format&fit=crop"
+                    alt="Jewelry Sketching">
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="process-content gsap-process-text-right">
+                <div class="process-number">02</div>
+                <h3>The Selection</h3>
+                <p>Only the top 1% of gemstones meet our rigorous standards. Each diamond, sapphire, and ruby is
+                    hand-selected by our expert gemologists for its brilliance, clarity, and emotional resonance.</p>
+            </div>
+            <div class="process-img-wrapper gsap-process-img-left">
+                <img src="https://images.unsplash.com/photo-1605100804763-247f6612080c?q=80&w=800&auto=format&fit=crop"
+                    alt="Diamond Selection">
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="process-content gsap-process-text-left">
+                <div class="process-number">03</div>
+                <h3>The Forge</h3>
+                <p>In our ateliers, raw gold and platinum are melted and molded. Using tools that have remained
+                    unchanged for centuries alongside cutting-edge technology, the metal is sculpted into its final
+                    form.</p>
+            </div>
+            <div class="process-img-wrapper gsap-process-img-right">
+                <img src="https://images.unsplash.com/photo-1599643478514-4a4e09b52342?q=80&w=800&auto=format&fit=crop"
+                    alt="Jeweler working">
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <p class="quote-text gsap-quote">"True jewelry is not merely worn; it is felt. It is the physical manifestation
+            of a profound memory, a promise kept, and a legacy born."</p>
+        <div class="quote-author gsap-quote-author">
+            Elias Thorne
+            <span>Founder & Master Jeweler</span>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        
+        <div class="footer-plus plus-left">+</div>
+        <div class="footer-plus plus-right">+</div>
+
+
+        <div class="footer-middle-row">
+            <div class="footer-tagline gsap-f-tagline">
+                <h3>Own Your Bold Look with<br>Confidence Daily</h3>
+            </div>
+
+            <div class="footer-links-grid gsap-f-links">
+                <div class="footer-column">
+                    <a href="#">ABOUT US</a>
+                    <a href="#">OUR SHOP</a>
+                    <a href="#">ALL BRANDS</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">CORPORATE RESPONSIBILITY</a>
+                    <a href="#">COMPANY POLICIES</a>
+                    <a href="#">JEWELRY INFORMATION</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">PRODUCT RECALLS</a>
+                    <a href="#">REQUEST CATALOG</a>
+                    <a href="#">NEWSLETTER</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-row gsap-f-bottom">
+            <div class="footer-brand">Shagun Ratna<span>+</span></div>
+            <div class="footer-copyright">Shagun Ratna By Team Texnox 2026</div>
+            <div class="footer-social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            /* =========================================
+               1. NAVBAR INTERACTIVE PILL
+               ========================================= */
+            const navPill = document.querySelector('.nav-center-pill');
+            const menuText = document.querySelector('.menu-btn-text');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            gsap.set(navLinks, { display: "none", opacity: 0 });
+            gsap.set(navItems, { y: 15, opacity: 0 });
+
+            const navHoverTl = gsap.timeline({ paused: true });
+            navHoverTl.to(navPill, { width: 440, duration: 0.5, ease: "power4.inOut" }, 0)
+                .to(menuText, { y: -20, opacity: 0, duration: 0.3, ease: "power2.in", display: "none" }, 0)
+                .to(navLinks, { display: "flex", opacity: 1, duration: 0.1 }, 0.2)
+                .to(navItems, { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, ease: "back.out(1.5)" }, 0.25);
+
+            navPill.addEventListener('mouseenter', () => navHoverTl.play());
+            navPill.addEventListener('mouseleave', () => navHoverTl.reverse());
+            gsap.from(".navbar", { y: -30, opacity: 0, duration: 1, ease: "power3.out" });
+
+            /* =========================================
+               2. ABOUT HERO ADVANCED ANIMATIONS
+               ========================================= */
+            const heroTl = gsap.timeline();
+            heroTl.to(".gsap-hero-title", { y: "0%", duration: 1.2, ease: "power4.out", delay: 0.2 })
+                .from(".gsap-hero-desc", { y: 30, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.6")
+                .to(".gsap-hero-banner", { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", duration: 1.5, ease: "power3.inOut" }, "-=0.8");
+
+            gsap.to(".gsap-parallax-img", {
+                scrollTrigger: { trigger: ".about-hero", start: "top top", end: "bottom top", scrub: true },
+                y: 100, scale: 1
+            });
+            gsap.to(".heritage-badge", { rotation: 360, duration: 20, repeat: -1, ease: "linear" });
+
+
+            /* =========================================
+               3. CORE VALUES STAGGER
+               ========================================= */
+            gsap.from(".gsap-values-up", {
+                scrollTrigger: { trigger: ".values-section", start: "top 80%", toggleActions: "play reverse play reverse" },
+                y: 40, opacity: 0, duration: 1, ease: "power3.out"
+            });
+            gsap.from(".gsap-value-card", {
+                scrollTrigger: { trigger: ".values-grid", start: "top 75%", toggleActions: "play reverse play reverse" },
+                y: 60, opacity: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
+            });
+
+
+            /* =========================================
+               4. THE PROCESS (ADVANCED MASKING & SLIDES)
+               ========================================= */
+            gsap.utils.toArray('.gsap-process-text-left').forEach(elem => {
+                gsap.from(elem, { scrollTrigger: { trigger: elem, start: "top 80%", toggleActions: "play reverse play reverse" }, x: -60, opacity: 0, duration: 1, ease: "power3.out" });
+            });
+            gsap.utils.toArray('.gsap-process-text-right').forEach(elem => {
+                gsap.from(elem, { scrollTrigger: { trigger: elem, start: "top 80%", toggleActions: "play reverse play reverse" }, x: 60, opacity: 0, duration: 1, ease: "power3.out" });
+            });
+
+            gsap.utils.toArray('.gsap-process-img-right').forEach(elem => {
+                gsap.to(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 75%", toggleActions: "play reverse play reverse" },
+                    clipPath: "inset(0 0% 0 0)", duration: 1.2, ease: "power3.inOut"
+                });
+                gsap.from(elem.querySelector('img'), {
+                    scrollTrigger: { trigger: elem, start: "top 75%", toggleActions: "play reverse play reverse" },
+                    scale: 1.2, duration: 1.2, ease: "power3.inOut"
+                });
+            });
+
+            gsap.utils.toArray('.gsap-process-img-left').forEach(elem => {
+                gsap.set(elem, { clipPath: "inset(0 0 0 100%)" });
+                gsap.to(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 75%", toggleActions: "play reverse play reverse" },
+                    clipPath: "inset(0 0 0 0%)", duration: 1.2, ease: "power3.inOut"
+                });
+                gsap.from(elem.querySelector('img'), {
+                    scrollTrigger: { trigger: elem, start: "top 75%", toggleActions: "play reverse play reverse" },
+                    scale: 1.2, duration: 1.2, ease: "power3.inOut"
+                });
+            });
+
+            /* =========================================
+               5. QUOTE REVEAL
+               ========================================= */
+            gsap.from(".gsap-quote", {
+                scrollTrigger: { trigger: ".quote-section", start: "top 85%", toggleActions: "play reverse play reverse" },
+                y: 30, opacity: 0, duration: 1, ease: "power2.out"
+            });
+            gsap.from(".gsap-quote-author", {
+                scrollTrigger: { trigger: ".quote-section", start: "top 80%", toggleActions: "play reverse play reverse" },
+                y: 20, opacity: 0, duration: 1, delay: 0.3, ease: "power2.out"
+            });
+
+
+            /* =========================================
+               6. NEW FOOTER ANIMATIONS WITH REVERSE
+               ========================================= */
+            // Animate the main heading: scale up and fade in
+            gsap.fromTo(".gsap-f-heading",
+                { opacity: 0, scale: 0.9, y: 50 },
+                {
+                    scrollTrigger: {
+                        trigger: ".site-footer",
+                        start: "top 80%",
+                        toggleActions: "play reverse play reverse" // plays forward going down, reverses going up
+                    },
+                    opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power4.out"
+                }
+            );
+
+            // Slide in tagline from the left
+            gsap.fromTo(".gsap-f-tagline",
+                { opacity: 0, x: -50 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-middle-row",
+                        start: "top 85%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, x: 0, duration: 1, ease: "power3.out"
+                }
+            );
+
+            // Stagger the link columns up
+            gsap.fromTo(".gsap-f-links .footer-column",
+                { opacity: 0, y: 40 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-middle-row",
+                        start: "top 85%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out"
+                }
+            );
+
+            // Bottom bar fade up
+            gsap.fromTo(".gsap-f-bottom",
+                { opacity: 0, y: 20 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-bottom-row",
+                        start: "top 90%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, y: 0, duration: 1, ease: "power2.out"
+                }
+            );
+
+            // Parallax effect on corner decor icons
+            gsap.to(".footer-decor-item", {
+                scrollTrigger: {
+                    trigger: ".site-footer",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                },
+                y: -40, rotation: 5
+            });
+
+        });
+    </script>
+</body>
+
+</html>

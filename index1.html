@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shagun Ratna - Exceptional Jewellery</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        /* APPLIED 60-30-10 COLOR PALETTE */
+
+
+        :root {
+            --accent-gold: #D4AF37;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        /* =========================================
+   FOOTER DESIGN
+   ========================================= */
+        .site-footer {
+            background-color: #0d0b0a;
+            /* Dark sleek background */
+            color: #ebeae7;
+            padding: 8rem 8rem 4rem 8rem;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-body);
+        }
+
+        /* Decorative background elements matching the image */
+        .footer-decor-item {
+            position: absolute;
+            opacity: 0.8;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .footer-decor-tl {
+            top: -30px;
+            left: -30px;
+            width: 250px;
+            transform: rotate(-15deg);
+        }
+
+        .footer-decor-tr {
+            top: 20px;
+            right: -50px;
+            width: 280px;
+        }
+
+        /* Plus signs */
+        .footer-plus {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .plus-left {
+            top: 25%;
+            left: 10%;
+        }
+
+        .plus-right {
+            top: 40%;
+            right: 5%;
+        }
+
+        .footer-main-heading {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 4.8rem;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+            margin-bottom: 7rem;
+            color: #d1cbc1;
+            /* Soft off-white to match image */
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-middle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6rem;
+            padding-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-tagline {
+            flex: 1;
+        }
+
+        .footer-tagline h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            color: #f4f4f4;
+        }
+
+        .footer-links-grid {
+            flex: 2;
+            display: flex;
+            justify-content: flex-end;
+            gap: 4rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-column a {
+            font-size: 0.75rem;
+            color: #9c9a96;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-gold);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 1.5px;
+            color: #fff;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-brand span {
+            font-size: 1rem;
+            font-family: var(--font-body);
+            margin-left: 2px;
+            margin-top: -2px;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: #9c9a96;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social-links a {
+            color: #d1cbc1;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .footer-middle-row {
+                flex-direction: column;
+                gap: 4rem;
+            }
+
+            .footer-links-grid {
+                justify-content: flex-start;
+                width: 100%;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .footer-main-heading {
+                font-size: 3.5rem;
+            }
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            /* 60% Beige */
+            --text-primary: #4A0E17;
+            /* 30% Deep Maroon / Vine Red */
+            --text-secondary: #8C4A5D;
+            /* 30% Lighter Maroon */
+            --accent-gold: #D4AF37;
+            /* 10% Golden */
+
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar Layout */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(244, 239, 234, 0.95) 0%, rgba(244, 239, 234, 0) 100%);
+        }
+
+        .logo {
+            flex: 1;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .auth-buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        /* INTERACTIVE PILL NAVBAR */
+        .nav-center-pill {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--text-primary);
+            border-radius: 50px;
+            height: 45px;
+            width: 120px;
+            overflow: hidden;
+            cursor: pointer;
+            background: transparent;
+            transition: 0.3s background-color;
+        }
+
+        .nav-center-pill:hover {
+            background: rgba(74, 14, 23, 0.03);
+        }
+
+        .menu-btn-text {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2.5rem;
+            align-items: center;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+            transition: 0.3s;
+        }
+
+        /* Auth Buttons */
+        .login-btn {
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 0.5rem 1.5rem;
+            transition: 0.3s;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .nav-btn {
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: 0.3s;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            background: var(--text-primary);
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            display: flex;
+            height: 100vh;
+            padding: 0 4rem;
+            align-items: center;
+            position: relative;
+            padding-top: 5rem;
+        }
+
+        .social-sidebar {
+            position: absolute;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+
+        .social-sidebar i:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+            transition: 0.3s;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .hero-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 85%;
+            font-weight: 500;
+        }
+
+        .cta-group {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .main-btn,
+        .add-to-cart-btn {
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: 0.3s;
+            border-radius: 50px;
+        }
+
+        .main-btn:hover,
+        .add-to-cart-btn:hover {
+            background: var(--text-primary);
+        }
+
+        .play-video-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: 0.3s;
+        }
+
+        .play-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .hero-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100%;
+        }
+
+        .main-ring {
+            max-width: 80%;
+            max-height: 80vh;
+            object-fit: contain;
+            z-index: 1;
+            mix-blend-mode: multiply;
+            border-radius: 50%;
+        }
+
+        .explore-circle {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            border: 1px dashed var(--text-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .circle-text {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* CATALOGUE SECTION */
+        .catalogue-section {
+            padding: 6rem 8rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .product-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            margin-bottom: 10rem;
+        }
+
+        .product-row.reverse {
+            grid-template-columns: 1fr 1.2fr;
+        }
+
+        .product-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-img {
+            max-width: 100%;
+            height: auto;
+            mix-blend-mode: multiply;
+            cursor: pointer;
+        }
+
+        .product-info h2 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .product-info>p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .purchase-action {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .price {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .our-story-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            max-width: 80%;
+        }
+
+        .our-story-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            mix-blend-mode: multiply;
+        }
+
+        .our-story-text h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .our-story-text p {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+
+        .size-selector {
+            margin-bottom: 2.5rem;
+        }
+
+        .size-selector h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .size-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 1px solid var(--text-primary);
+        }
+
+        .size-btn.active {
+            background: var(--text-primary);
+            color: var(--bg-color);
+        }
+
+        .vertical-slider {
+            position: absolute;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .slider-line {
+            width: 2px;
+            height: 40px;
+            background: rgba(74, 14, 23, 0.2);
+            position: relative;
+        }
+
+        .slider-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: var(--accent-gold);
+        }
+
+        /* EVERYDAY WEAR COLLECTION SECTION */
+        .everyday-collection-section {
+            padding: 2rem 8rem 8rem 8rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .everyday-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+        }
+
+        .everyday-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        .see-more-link {
+            font-family: var(--font-heading);
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: 0.3s;
+            padding-bottom: 0.5rem;
+        }
+
+        .see-more-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .everyday-carousel-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .everyday-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            width: 100%;
+            padding-right: 5rem;
+        }
+
+        .everyday-card {
+            cursor: pointer;
+        }
+
+        .everyday-img-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            margin-bottom: 1.5rem;
+        }
+
+        .everyday-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bg-offset {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .block-1 {
+            background-color: rgba(140, 74, 93, 0.2);
+        }
+
+        .block-2 {
+            background-color: rgba(74, 14, 23, 0.1);
+        }
+
+        .everyday-card:hover .everyday-img-wrapper img {
+            transform: translate(-10px, -10px);
+        }
+
+        .everyday-card:hover .bg-offset {
+            top: 0;
+            left: 0;
+            background-color: var(--accent-gold);
+            opacity: 0.2;
+        }
+
+        .everyday-card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-primary);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            right: 0;
+            top: 45%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            font-size: 2.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .carousel-arrow:hover {
+            color: var(--text-primary);
+            transform: translate(10px, -50%);
+        }
+
+        /* STORY ZIG-ZAG SECTION */
+        .story-section {
+            padding: 4rem 8rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .story-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .story-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-img-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+        }
+
+        .story-text-container {
+            padding: 3rem;
+        }
+
+        .story-text-container h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .story-text-container p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .shop-now-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--text-secondary);
+            padding-bottom: 0.2rem;
+            transition: 0.3s;
+        }
+
+        .shop-now-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+            gap: 0.8rem;
+        }
+
+        /* EXPLORE NEW ARRIVALS BANNER */
+        .new-arrivals-section {
+            padding: 4rem 8rem 8rem 8rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .new-arrivals-banner {
+            display: flex;
+            width: 100%;
+            height: 450px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(74, 14, 23, 0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        .banner-left-pane {
+            position: relative;
+            width: 60%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .banner-left-pane img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-right-pane {
+            position: relative;
+            width: 40%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-right-pane img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.75);
+        }
+
+        .banner-overlay-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .banner-overlay-content h3 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .solid-buy-btn {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.9), rgba(184, 145, 20, 0.9));
+            color: #fff;
+            padding: 0.8rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .solid-buy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .banner-pagination {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #fff;
+            width: 8px;
+            height: 8px;
+        }
+
+        .banner-caption {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews-section {
+            padding: 4rem 8rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: baseline;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            font-weight: 400;
+        }
+
+        .review-header .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .review-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .review-cards-container {
+            position: relative;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .review-card {
+            position: absolute;
+            width: 250px;
+            height: 350px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(74, 14, 23, 0.2);
+            transform-origin: bottom center;
+        }
+
+        .card-left {
+            z-index: 1;
+        }
+
+        .card-center {
+            z-index: 3;
+            width: 270px;
+            height: 380px;
+        }
+
+        .card-right {
+            z-index: 2;
+        }
+
+        .review-text-container {
+            padding-right: 2rem;
+        }
+
+        .review-quote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            padding: 2.5rem 0;
+            border-top: 1px solid rgba(74, 14, 23, 0.2);
+            border-bottom: 1px solid rgba(74, 14, 23, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .reviewer-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* EDITORIAL / BANNER SECTION */
+        .editorial-section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 1.5rem;
+            padding: 0 8rem;
+            margin-bottom: 8rem;
+            align-items: center;
+        }
+
+        .editorial-text {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            padding-right: 2rem;
+        }
+
+        .editorial-text strong {
+            color: var(--text-primary);
+        }
+
+        .ed-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .marquee-wrapper {
+            position: relative;
+            height: 150px;
+            margin-bottom: 8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marquee-strip {
+            position: absolute;
+            width: 120vw;
+            left: -10vw;
+            padding: 1.5rem 0;
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .strip-1 {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            transform: rotate(-3deg);
+            z-index: 2;
+        }
+
+        .strip-2 {
+            background: var(--accent-gold);
+            color: var(--text-primary);
+            transform: rotate(2deg);
+            z-index: 1;
+        }
+
+        .marquee-inner {
+            display: flex;
+            gap: 3rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .universe-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .universe-banner-container {
+            position: relative;
+            padding: 0 8rem;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .bg-large-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25vw;
+            font-weight: 300;
+            color: var(--text-primary);
+            opacity: 0.05;
+            z-index: -1;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .banner-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .banner-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .banner-overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            width: 100%;
+        }
+
+        .banner-overlay-text h4 {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .banner-overlay-text h2 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            line-height: 1.1;
+        }
+
+        .universe-footer {
+            text-align: center;
+            padding-bottom: 4rem;
+        }
+
+        .universe-footer p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .universe-footer a {
+            font-size: 0.85rem;
+            text-decoration: underline;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* FOOTER SECTION */
+        .site-footer {
+            position: relative;
+            min-height: 550px;
+            display: flex;
+            align-items: flex-end;
+            padding: 4rem 8rem 2rem 8rem;
+            color: #fff;
+            overflow: hidden;
+            margin-top: 4rem;
+        }
+
+        .footer-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .footer-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+        }
+
+        .footer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(30, 25, 27, 0.7), rgba(15, 10, 12, 0.95));
+            backdrop-filter: blur(2px);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            min-height: 480px;
+        }
+
+        .newsletter-wrapper {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .newsletter-wrapper h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .newsletter-input-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+            backdrop-filter: blur(8px);
+            transition: 0.3s;
+        }
+
+        .newsletter-input-group:focus-within {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .newsletter-input-group input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+
+        .newsletter-input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-input-group button {
+            background: var(--bg-color);
+            color: var(--text-primary);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .newsletter-input-group button:hover {
+            background: var(--accent-gold);
+            color: #fff;
+        }
+
+        .footer-links-row {
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            margin-top: 4rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.8rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-gold);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+            padding-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-badge {
+            background: #fff;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .footer-badge:hover {
+            background: var(--accent-gold);
+            color: #fff;
+        }
+
+
+        /* =========================================
+           NEW: ADVANCED AUTH MODAL (Login/Register)
+           ========================================= */
+        .auth-modal-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1000;
+            pointer-events: none;
+            /* Changed by GSAP */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 25, 27, 0.6);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+        }
+
+        .auth-modal-container {
+            position: relative;
+            width: 900px;
+            height: 550px;
+            background: var(--bg-color);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+        }
+
+        .auth-close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .auth-close-btn:hover {
+            color: var(--accent-gold);
+            transform: rotate(90deg);
+        }
+
+        .auth-modal-left {
+            width: 45%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-modal-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .auth-modal-overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 3rem 2rem 2rem 2rem;
+            color: #fff;
+            background: linear-gradient(to top, rgba(74, 14, 23, 0.9), transparent);
+        }
+
+        .auth-modal-overlay-text h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-modal-overlay-text p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .auth-modal-right {
+            width: 55%;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .auth-form-container {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .auth-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1rem;
+            color: var(--text-primary);
+            border: none;
+            border-bottom: 1px solid rgba(74, 14, 23, 0.3);
+            outline: none;
+            background: transparent;
+            transition: 0.3s;
+        }
+
+        .input-group label {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+            transition: 0.3s ease all;
+        }
+
+        .input-group input:focus,
+        .input-group input:valid {
+            border-color: var(--text-primary);
+        }
+
+        .input-group input:focus~label,
+        .input-group input:valid~label {
+            top: -20px;
+            font-size: 0.75rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .auth-submit-btn {
+            width: 100%;
+            background: var(--text-primary);
+            color: #fff;
+            padding: 1rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 1rem;
+        }
+
+        .auth-submit-btn:hover {
+            background: var(--accent-gold);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .auth-switch-text {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        .auth-switch-link {
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+
+        .auth-switch-link:hover {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo"><i class="fa-solid fa-snowflake"></i> Shagun Ratna</div>
+        <div class="nav-center-pill">
+            <div class="menu-btn-text"><i class="fa-solid fa-bars-staggered"></i> MENU</div>
+            <nav class="nav-links">
+                <a href="#">Home</a><a href="about1.html">About</a><a href="#">Services</a><a
+                    href="catalog1.html">Catlogue</a>
+            </nav>
+        </div>
+        <div class="auth-buttons">
+            <a href="#" class="login-btn auth-trigger" data-type="login">Log In</a>
+            <a href="#" class="get-started-btn nav-btn auth-trigger" data-type="register">Register</a>
+        </div>
+    </header>
+
+    <main class="hero-section">
+        <div class="social-sidebar">
+            <a href="#"><i class="fa-brands fa-twitter"></i></a><a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"><i
+                    class="fa-brands fa-facebook-f"></i></a>
+        </div>
+        <div class="hero-content">
+            <h1 class="gsap-text">Discover The<br>Exceptional Jewellery<br>With Us</h1>
+            <p class="gsap-text">Lorem ipsum dolor sit amet. Qui consequatur sint 33 voluptatem officia et sint
+                laboriosam sed ipsa sin</p>
+            <div class="cta-group gsap-text">
+                <button class="main-btn">GET STARTED</button>
+                <a href="#" class="play-video-btn"><span class="play-icon"><i class="fa-solid fa-play"></i></span>Play
+                    Video</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <div class="explore-circle">
+                <div class="circle-text">Explore</div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=800&auto=format&fit=crop"
+                alt="Diamond Ring" class="main-ring">
+        </div>
+    </main>
+
+    <section class="catalogue-section">
+        <div class="product-row">
+            <div class="product-image-container gsap-scroll-left">
+                <img src="https://images.unsplash.com/photo-1603561596112-0a132b757442?q=80&w=1000&auto=format&fit=crop"
+                    alt="Silver Sterling Designer Ring" class="product-img ring-img">
+            </div>
+            <div class="product-info gsap-scroll-right">
+                <h2>Pikup Silver Sterling<br>Designer Ring</h2>
+                <p>Lorem ipsum dolor sit amet. Qui consequatur sint 33 voluptatem officia et sint laboriosam sed ipsa
+                    sint ut voluptatum labore et possimus voluptas.</p>
+                <div class="purchase-action"><button class="add-to-cart-btn">ADD TO CART</button><span class="price">$
+                        549.29</span></div>
+                <div class="our-story-block">
+                    <img src="https://images.unsplash.com/photo-1599643478514-4a4e09b52342?q=80&w=200&auto=format&fit=crop"
+                        alt="Rings" class="our-story-img">
+                    <div class="our-story-text">
+                        <h3>Our Story</h3>
+                        <p>modern jewelry is made of gold, silver, or platinum, often with precious or semiprecious
+                            stones, it evolved from shells.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-row reverse">
+            <div class="product-info gsap-scroll-left">
+                <h2>Silver Round Designer<br>Bracelet For Women</h2>
+                <p>Lorem ipsum dolor sit amet. Qui consequatur sint 33 voluptatem officia et sint laboriosam sed ipsa
+                    sint ut voluptatum labore et possimus voluptas.</p>
+                <div class="size-selector">
+                    <h3>Size</h3>
+                    <div class="size-options">
+                        <div class="size-btn active">S</div>
+                        <div class="size-btn">M</div>
+                        <div class="size-btn">L</div>
+                    </div>
+                </div>
+                <div class="purchase-action"><button class="add-to-cart-btn">ADD TO CART</button><span class="price">$
+                        549.29</span></div>
+            </div>
+            <div class="product-image-container gsap-scroll-right">
+                <img src="https://images.unsplash.com/photo-1573408301145-b98c4af05b8ea?q=80&w=1000&auto=format&fit=crop"
+                    alt="Silver Bracelet" class="product-img bracelet-img" style="transform: rotate(15deg);">
+                <div class="vertical-slider"><span>01</span>
+                    <div class="slider-line"></div><span>09</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="everyday-collection-section">
+        <div class="everyday-header gsap-everyday-up">
+            <h2>Dive into our everyday wear collection</h2><a href="#" class="see-more-link">See More</a>
+        </div>
+        <div class="everyday-carousel-container">
+            <div class="everyday-cards">
+                <div class="everyday-card gsap-everyday-left">
+                    <div class="everyday-img-wrapper">
+                        <div class="bg-offset block-1"></div><img
+                            src="https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=800&auto=format&fit=crop"
+                            alt="Gold Hoop Earrings">
+                    </div>
+                    <h3>Earrings</h3>
+                </div>
+                <div class="everyday-card gsap-everyday-right">
+                    <div class="everyday-img-wrapper">
+                        <div class="bg-offset block-2"></div><img
+                            src="https://images.unsplash.com/photo-1599643478514-4a4e09b52342?q=80&w=800&auto=format&fit=crop"
+                            alt="Gold Pendant Necklace">
+                    </div>
+                    <h3>Necklaces</h3>
+                </div>
+            </div>
+            <button class="carousel-arrow gsap-everyday-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-row">
+            <div class="story-img-container gsap-story-left"><img
+                    src="https://images.unsplash.com/photo-1602751584552-8ba73aad10ee?q=80&w=800&auto=format&fit=crop"
+                    alt="Rings on hand" class="parallax-img"></div>
+            <div class="story-text-container gsap-story-right">
+                <h2>Jewelry That Tells Your Story in Sparkling Detail</h2>
+                <p>Celebrate life's special moments with exquisite pieces designed for love, beauty, and elegance. Find
+                    the perfect treasure that speaks to your heart.</p>
+                <a href="#" class="shop-now-btn">SHOP NOW <i class="fa-solid fa-arrow-up-right"></i></a>
+            </div>
+        </div>
+        <div class="story-row">
+            <div class="story-text-container gsap-story-left">
+                <h2>Adorn Yourself with Jewelry That Captures Your Essence</h2>
+                <p>Each piece is carefully designed to celebrate your individuality. From delicate details to bold
+                    statements, find your perfect match today.</p>
+                <a href="#" class="shop-now-btn">SHOP NOW <i class="fa-solid fa-arrow-up-right"></i></a>
+            </div>
+            <div class="story-img-container gsap-story-right"><img
+                    src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop"
+                    alt="Bracelet on wrist" class="parallax-img"></div>
+        </div>
+    </section>
+
+    <section class="new-arrivals-section">
+        <div class="everyday-header gsap-new-up">
+            <h2>Explore New Arrivals</h2><a href="#" class="see-more-link">See More</a>
+        </div>
+        <div class="new-arrivals-banner gsap-banner-scale">
+            <div class="banner-left-pane">
+                <img src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=1000&auto=format&fit=crop"
+                    alt="Gold Hoops Closeup" class="zoom-img">
+                <div class="banner-pagination"><span class="dot"></span><span class="dot active"></span><span
+                        class="dot"></span></div>
+            </div>
+            <div class="banner-right-pane">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop"
+                    alt="Model wearing hoops">
+                <div class="banner-overlay-content gsap-overlay-stagger">
+                    <h3>Perfect Hoops</h3><button class="solid-buy-btn">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <p class="banner-caption gsap-new-up">Simple thick small/medium sized gold hoops for everyday wear</p>
+    </section>
+
+    <section class="reviews-section">
+        <div class="review-header gsap-fade-up">
+            <h2>REVIEW FROM</h2> <span class="subtitle">CLIENTS</span>
+        </div>
+        <div class="review-content">
+            <div class="review-cards-container gsap-cards-trigger">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop"
+                    alt="Client" class="review-card card-left">
+                <img src="https://images.unsplash.com/photo-1515347619152-19e8b15d65bb?q=80&w=600&auto=format&fit=crop"
+                    alt="Client" class="review-card card-right">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600&auto=format&fit=crop"
+                    alt="Client Main" class="review-card card-center">
+            </div>
+            <div class="review-text-container gsap-quote-trigger">
+                <div class="review-quote">"Aurelle's craftsmanship is truly exceptional. Every piece feels luxurious,
+                    elegant, and timeless. I love how each design tells a story and adds a touch of sophistication to my
+                    style."</div>
+                <div class="reviewer-info">
+                    <h4>Tanvi Trisha</h4>
+                    <p>Expert Fashion Stylist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="editorial-section">
+        <div class="editorial-grid">
+            <div class="editorial-text gsap-stagger-up">Life is made up of moments—some fleeting, some unforgettable.
+                The jewelry you wear should reflect that. Our <strong>14k gold designs</strong> are crafted with care.
+            </div>
+            <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=500&auto=format&fit=crop"
+                class="ed-img gsap-stagger-up">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=500&auto=format&fit=crop"
+                class="ed-img gsap-stagger-up">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=500&auto=format&fit=crop"
+                class="ed-img gsap-stagger-up">
+        </div>
+
+        <div class="marquee-wrapper gsap-fade-in">
+            <div class="marquee-strip strip-1">
+                <div class="marquee-inner"><span>SHOP NOW AT SUMMER SALE 25% OFF</span><span>SHOP NOW AT SUMMER SALE 25%
+                        OFF</span><span>SHOP NOW AT SUMMER SALE 25% OFF</span><span>SHOP NOW AT SUMMER SALE 25%
+                        OFF</span></div>
+            </div>
+            <div class="marquee-strip strip-2">
+                <div class="marquee-inner reverse-marquee"><span>SHOP NOW AT SUMMER SALE 25% OFF</span><span>SHOP NOW AT
+                        SUMMER SALE 25% OFF</span><span>SHOP NOW AT SUMMER SALE 25% OFF</span><span>SHOP NOW AT SUMMER
+                        SALE 25% OFF</span></div>
+            </div>
+        </div>
+
+        <div class="universe-header gsap-fade-up"><span>AURELLE UNIVERSE</span> <span>DISCOVER</span></div>
+        <div class="universe-banner-container gsap-universe-trigger">
+            <div class="bg-large-text parallax-text">A U R E L L E</div>
+            <div class="banner-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=1600&auto=format&fit=crop"
+                    alt="Model">
+                <div class="banner-overlay-text">
+                    <h4>MOST WANTED</h4>
+                    <h2>THE ROXANNE<br>EARRING</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="universe-footer gsap-fade-up">
+            <p>Jewelry That Moves with You</p><a href="#">DISCOVER</a>
+        </div>
+    </section>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-plus plus-left">+</div>
+        <div class="footer-plus plus-right">+</div>
+
+
+        <div class="footer-middle-row">
+            <div class="footer-tagline gsap-f-tagline">
+                <h3>Own Your Bold Look with<br>Confidence Daily</h3>
+            </div>
+
+            <div class="footer-links-grid gsap-f-links">
+                <div class="footer-column">
+                    <a href="#">ABOUT US</a>
+                    <a href="#">OUR SHOP</a>
+                    <a href="#">ALL BRANDS</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">CORPORATE RESPONSIBILITY</a>
+                    <a href="#">COMPANY POLICIES</a>
+                    <a href="#">JEWELRY INFORMATION</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">PRODUCT RECALLS</a>
+                    <a href="#">REQUEST CATALOG</a>
+                    <a href="#">NEWSLETTER</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-row gsap-f-bottom">
+            <div class="footer-brand">Shagun Ratna<span>+</span></div>
+            <div class="footer-copyright">Shagun Ratna By Team Texnox 2026</div>
+            <div class="footer-social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="auth-modal-wrapper">
+        <div class="auth-modal-backdrop"></div>
+        <div class="auth-modal-container">
+            <button class="auth-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-modal-left">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=600&auto=format&fit=crop"
+                    alt="Jewelry Model">
+                <div class="auth-modal-overlay-text">
+                    <h3>Join the Universe</h3>
+                    <p>Unlock exclusive offers, early access to new collections, and a personalized shopping experience.
+                    </p>
+                </div>
+            </div>
+            <div class="auth-modal-right">
+                <div class="auth-form-container">
+                    <h2 class="auth-title">Create Account</h2>
+                    <form class="auth-form" onsubmit="event.preventDefault();">
+                        <div class="input-group register-only">
+                            <input type="text" required>
+                            <label>Full Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" required>
+                            <label>Email Address</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" required>
+                            <label>Password</label>
+                        </div>
+                        <button type="submit" class="auth-submit-btn">Register</button>
+                    </form>
+                    <p class="auth-switch-text"><span>Already have an account?</span> <span class="auth-switch-link">Log
+                            In</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            /* =========================================
+               1. NAVBAR INTERACTIVE PILL
+               ========================================= */
+            const navPill = document.querySelector('.nav-center-pill');
+            const menuText = document.querySelector('.menu-btn-text');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            gsap.set(navLinks, { display: "none", opacity: 0 });
+            gsap.set(navItems, { y: 15, opacity: 0 });
+
+            const navHoverTl = gsap.timeline({ paused: true });
+            navHoverTl.to(navPill, { width: 440, duration: 0.5, ease: "power4.inOut" }, 0)
+                .to(menuText, { y: -20, opacity: 0, duration: 0.3, ease: "power2.in", display: "none" }, 0)
+                .to(navLinks, { display: "flex", opacity: 1, duration: 0.1 }, 0.2)
+                .to(navItems, { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, ease: "back.out(1.5)" }, 0.25);
+
+            navPill.addEventListener('mouseenter', () => navHoverTl.play());
+            navPill.addEventListener('mouseleave', () => navHoverTl.reverse());
+
+            /* =========================================
+               2. HERO SECTION
+               ========================================= */
+            const masterTl = gsap.timeline();
+            masterTl.from(".navbar", { y: -30, opacity: 0, duration: 1, ease: "power3.out" })
+                .from(".gsap-text", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out" }, "-=0.5")
+                .from(".main-ring", { scale: 0.8, opacity: 0, duration: 1.5, ease: "power2.out" }, "-=1")
+                .from(".social-sidebar a", { x: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power2.out" }, "-=1")
+                .from(".explore-circle", { scale: 0, opacity: 0, duration: 1, ease: "back.out(1.7)" }, "-=1");
+
+            gsap.to(".explore-circle", { rotation: 360, duration: 15, repeat: -1, ease: "linear" });
+
+            const heroImageContainer = document.querySelector('.hero-image-container');
+            const heroHoverTl = gsap.timeline({ paused: true });
+            heroHoverTl.to(".gsap-text", { y: -10, opacity: 0.5, duration: 0.4, stagger: 0.05, ease: "power1.inOut" });
+
+            heroImageContainer.addEventListener('mouseenter', () => { heroHoverTl.play(); gsap.to(".main-ring", { scale: 1.05, duration: 0.5, ease: "power2.out" }); });
+            heroImageContainer.addEventListener('mouseleave', () => { heroHoverTl.reverse(); gsap.to(".main-ring", { scale: 1, duration: 0.5, ease: "power2.out" }); });
+
+            /* =========================================
+               3. CATALOGUE SECTION
+               ========================================= */
+            gsap.utils.toArray('.product-row').forEach(row => {
+                gsap.from(row.querySelector('.gsap-scroll-left'), { scrollTrigger: { trigger: row, start: "top 80%", toggleActions: "play reverse play reverse" }, x: -80, opacity: 0, duration: 1, ease: "power3.out" });
+                gsap.from(row.querySelector('.gsap-scroll-right'), { scrollTrigger: { trigger: row, start: "top 80%", toggleActions: "play reverse play reverse" }, x: 80, opacity: 0, duration: 1, ease: "power3.out" });
+            });
+            document.querySelectorAll('.product-img').forEach(img => {
+                const floatTl = gsap.timeline({ paused: true });
+                floatTl.to(img, { y: -15, scale: 1.03, filter: "drop-shadow(0px 10px 20px rgba(74, 14, 23, 0.15))", duration: 0.6, ease: "power2.out" });
+                img.addEventListener('mouseenter', () => floatTl.play());
+                img.addEventListener('mouseleave', () => floatTl.reverse());
+            });
+
+            /* =========================================
+               4. EVERYDAY WEAR
+               ========================================= */
+            gsap.from(".gsap-everyday-up", { scrollTrigger: { trigger: ".everyday-collection-section", start: "top 80%", toggleActions: "play reverse play reverse" }, y: 40, opacity: 0, duration: 1, ease: "power3.out" });
+            gsap.from(".gsap-everyday-left", { scrollTrigger: { trigger: ".everyday-cards", start: "top 75%", toggleActions: "play reverse play reverse" }, x: -80, opacity: 0, duration: 1.2, ease: "power3.out" });
+            gsap.from(".gsap-everyday-right", { scrollTrigger: { trigger: ".everyday-cards", start: "top 75%", toggleActions: "play reverse play reverse" }, x: 80, opacity: 0, duration: 1.2, ease: "power3.out" });
+            gsap.from(".gsap-everyday-arrow", { scrollTrigger: { trigger: ".everyday-cards", start: "top 75%", toggleActions: "play reverse play reverse" }, x: -20, opacity: 0, duration: 1, delay: 0.4, ease: "back.out(2)" });
+
+            /* =========================================
+               5. STORY ZIG-ZAG SECTION
+               ========================================= */
+            gsap.utils.toArray('.story-row').forEach(row => {
+                gsap.from(row.querySelector('.gsap-story-left'), { scrollTrigger: { trigger: row, start: "top 80%", toggleActions: "play reverse play reverse" }, x: -80, opacity: 0, duration: 1.2, ease: "power3.out" });
+                gsap.from(row.querySelector('.gsap-story-right'), { scrollTrigger: { trigger: row, start: "top 80%", toggleActions: "play reverse play reverse" }, x: 80, opacity: 0, duration: 1.2, ease: "power3.out" });
+                gsap.to(row.querySelector('.parallax-img'), { scrollTrigger: { trigger: row, start: "top bottom", end: "bottom top", scrub: true }, y: 30, scale: 1 });
+            });
+
+            /* =========================================
+               6. EXPLORE NEW ARRIVALS
+               ========================================= */
+            gsap.utils.toArray('.gsap-new-up').forEach(elem => { gsap.from(elem, { scrollTrigger: { trigger: ".new-arrivals-section", start: "top 80%", toggleActions: "play reverse play reverse" }, y: 30, opacity: 0, duration: 1, ease: "power2.out" }); });
+            gsap.from(".gsap-banner-scale", { scrollTrigger: { trigger: ".new-arrivals-banner", start: "top 75%", toggleActions: "play reverse play reverse" }, scale: 0.95, opacity: 0, duration: 1.2, ease: "power2.out" });
+            gsap.to(".zoom-img", { scrollTrigger: { trigger: ".new-arrivals-banner", start: "top bottom", end: "bottom top", scrub: 1 }, scale: 1.15 });
+            gsap.from(".gsap-overlay-stagger > *", { scrollTrigger: { trigger: ".new-arrivals-banner", start: "top 65%", toggleActions: "play reverse play reverse" }, y: 20, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power2.out" });
+
+            /* =========================================
+               7. REVIEW SECTION
+               ========================================= */
+            gsap.fromTo(".card-left", { rotation: 0, x: 0, opacity: 0 }, { scrollTrigger: { trigger: ".review-cards-container", start: "top 75%", toggleActions: "play reverse play reverse" }, rotation: -15, x: -80, opacity: 1, duration: 1.2, ease: "back.out(1.2)" });
+            gsap.fromTo(".card-right", { rotation: 0, x: 0, opacity: 0 }, { scrollTrigger: { trigger: ".review-cards-container", start: "top 75%", toggleActions: "play reverse play reverse" }, rotation: 15, x: 80, opacity: 1, duration: 1.2, ease: "back.out(1.2)" });
+            gsap.from(".card-center", { scrollTrigger: { trigger: ".review-cards-container", start: "top 75%", toggleActions: "play reverse play reverse" }, y: 50, opacity: 0, duration: 1, ease: "power3.out" });
+            gsap.from(".gsap-quote-trigger", { scrollTrigger: { trigger: ".gsap-quote-trigger", start: "top 85%", toggleActions: "play reverse play reverse" }, x: 50, opacity: 0, duration: 1, ease: "power2.out" });
+
+            /* =========================================
+               8. EDITORIAL / BANNER
+               ========================================= */
+            gsap.from(".gsap-stagger-up", { scrollTrigger: { trigger: ".editorial-grid", start: "top 80%", toggleActions: "play reverse play reverse" }, y: 60, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out" });
+            document.querySelectorAll('.marquee-inner').forEach(inner => { inner.innerHTML += inner.innerHTML; });
+            gsap.to(".strip-1 .marquee-inner", { xPercent: -50, repeat: -1, duration: 15, ease: "linear" });
+            gsap.fromTo(".strip-2 .marquee-inner", { xPercent: -50 }, { xPercent: 0, repeat: -1, duration: 15, ease: "linear" });
+            gsap.from(".banner-img-wrapper", { scrollTrigger: { trigger: ".gsap-universe-trigger", start: "top 85%", toggleActions: "play reverse play reverse" }, scale: 0.9, opacity: 0, duration: 1.2, ease: "power3.out" });
+            gsap.to(".parallax-text", { scrollTrigger: { trigger: ".gsap-universe-trigger", start: "top bottom", end: "bottom top", scrub: 1 }, x: 300 });
+            gsap.utils.toArray('.gsap-fade-up').forEach(elem => { gsap.from(elem, { scrollTrigger: { trigger: elem, start: "top 90%", toggleActions: "play reverse play reverse" }, y: 30, opacity: 0, duration: 0.8, ease: "power2.out" }); });
+
+            /* =========================================
+               9. FOOTER ANIMATIONS
+               ========================================= */
+            gsap.to(".gsap-footer-bg", { scrollTrigger: { trigger: ".site-footer", start: "top bottom", end: "bottom top", scrub: 1 }, scale: 1 });
+            gsap.from(".gsap-footer-up", { scrollTrigger: { trigger: ".site-footer", start: "top 75%", toggleActions: "play reverse play reverse" }, y: 50, opacity: 0, duration: 1, ease: "power3.out" });
+            gsap.from(".gsap-footer-stagger .footer-col", { scrollTrigger: { trigger: ".site-footer", start: "top 65%", toggleActions: "play reverse play reverse" }, y: 30, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power2.out" });
+            gsap.from(".gsap-footer-left", { scrollTrigger: { trigger: ".footer-bottom", start: "top 90%", toggleActions: "play reverse play reverse" }, x: -50, opacity: 0, duration: 1, ease: "power3.out" });
+            gsap.from(".gsap-footer-right", { scrollTrigger: { trigger: ".footer-bottom", start: "top 90%", toggleActions: "play reverse play reverse" }, x: 50, opacity: 0, duration: 1, ease: "power3.out" });
+
+
+            /* =========================================
+               10. NEW: ADVANCED AUTH MODAL ANIMATIONS
+               ========================================= */
+            const authTriggers = document.querySelectorAll('.auth-trigger');
+            const authModalWrapper = document.querySelector('.auth-modal-wrapper');
+            const authCloseBtn = document.querySelector('.auth-close-btn');
+
+            // Elements to modify during switch
+            const authSwitchLink = document.querySelector('.auth-switch-link');
+            const authSwitchText = document.querySelector('.auth-switch-text span:first-child');
+            const authTitle = document.querySelector('.auth-title');
+            const authSubmitBtn = document.querySelector('.auth-submit-btn');
+            const registerOnlyFields = document.querySelectorAll('.register-only');
+
+            let isLoginMode = false;
+
+            // Master Modal Reveal Timeline
+            const authTl = gsap.timeline({ paused: true, reversed: true });
+            authTl.to(authModalWrapper, { pointerEvents: "all", duration: 0 })
+                .to(".auth-modal-backdrop", { opacity: 1, duration: 0.4, ease: "power2.out" })
+                .to(".auth-modal-container", { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.2)" }, "-=0.2")
+                .from(".auth-modal-left img", { scale: 1.2, duration: 1.2, ease: "power3.out" }, "-=0.6")
+                .from(".auth-form-container > *", { y: 20, opacity: 0, stagger: 0.1, duration: 0.5, ease: "power2.out" }, "-=0.6");
+
+            // Function to handle switching between Login / Register visually
+            function switchAuthType() {
+                isLoginMode = !isLoginMode;
+                const switchTl = gsap.timeline();
+
+                // Animate out current fields
+                switchTl.to(".auth-form-container > *", { opacity: 0, y: -10, duration: 0.2, stagger: 0.05, ease: "power2.in" })
+                    .call(() => {
+                        // Swap DOM content while hidden
+                        if (isLoginMode) {
+                            authTitle.textContent = "Welcome Back";
+                            authSubmitBtn.textContent = "Log In";
+                            authSwitchLink.textContent = "Register";
+                            authSwitchText.textContent = "Don't have an account? ";
+                            gsap.set(registerOnlyFields, { display: "none" });
+                        } else {
+                            authTitle.textContent = "Create Account";
+                            authSubmitBtn.textContent = "Register";
+                            authSwitchLink.textContent = "Log In";
+                            authSwitchText.textContent = "Already have an account? ";
+                            gsap.set(registerOnlyFields, { display: "block" });
+                        }
+                    })
+                    // Animate back in
+                    .to(".auth-form-container > *", { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out" });
+            }
+
+            // Click Handlers for Navbar Buttons
+            authTriggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const type = btn.dataset.type; // 'login' or 'register'
+
+                    // Match modal state to the button clicked
+                    if (type === 'login' && !isLoginMode) { switchAuthType(); }
+                    else if (type === 'register' && isLoginMode) { switchAuthType(); }
+
+                    authTl.play();
+                });
+            });
+
+            // Click Handler for Close Button
+            authCloseBtn.addEventListener('click', () => {
+                authTl.reverse();
+                gsap.to(authModalWrapper, { pointerEvents: "none", duration: 0, delay: 0.6 });
+            });
+
+            // Click Handler for the Bottom Switch Text
+            authSwitchLink.addEventListener('click', switchAuthType);
+
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            /* =========================================
+               FOOTER ANIMATIONS WITH REVERSE
+               ========================================= */
+
+            // Animate the main heading: scale up and fade in
+            gsap.fromTo(".gsap-f-heading",
+                { opacity: 0, scale: 0.9, y: 50 },
+                {
+                    scrollTrigger: {
+                        trigger: ".site-footer",
+                        start: "top 80%",
+                        toggleActions: "play reverse play reverse" // plays forward going down, reverses going up
+                    },
+                    opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power4.out"
+                }
+            );
+
+            // Slide in tagline from the left
+            gsap.fromTo(".gsap-f-tagline",
+                { opacity: 0, x: -50 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-middle-row",
+                        start: "top 85%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, x: 0, duration: 1, ease: "power3.out"
+                }
+            );
+
+            // Stagger the link columns up
+            gsap.fromTo(".gsap-f-links .footer-column",
+                { opacity: 0, y: 40 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-middle-row",
+                        start: "top 85%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out"
+                }
+            );
+
+            // Bottom bar fade up
+            gsap.fromTo(".gsap-f-bottom",
+                { opacity: 0, y: 20 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-bottom-row",
+                        start: "top 90%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, y: 0, duration: 1, ease: "power2.out"
+                }
+            );
+
+            // Parallax effect on corner decor icons
+            gsap.to(".footer-decor-item", {
+                scrollTrigger: {
+                    trigger: ".site-footer",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                },
+                y: -40, rotation: 5
+            });
+
+        });
+    </script>
+</body>
+
+</html>

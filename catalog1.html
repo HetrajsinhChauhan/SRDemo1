@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewell - Our Complete Catalogue</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* APPLIED 60-30-10 COLOR PALETTE */
+        :root {
+            --bg-color: #F4EFEA;
+            --text-primary: #4A0E17;
+            --text-secondary: #8C4A5D;
+            --accent-gold: #D4AF37;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================================
+           NAVBAR 
+           ========================================= */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 4rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(244, 239, 234, 0.95) 0%, rgba(244, 239, 234, 0) 100%);
+        }
+
+        .logo {
+            flex: 1;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .auth-buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-center-pill {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--text-primary);
+            border-radius: 50px;
+            height: 45px;
+            width: 120px;
+            overflow: hidden;
+            cursor: pointer;
+            background: transparent;
+            transition: 0.3s background-color;
+        }
+
+        .nav-center-pill:hover {
+            background: rgba(74, 14, 23, 0.03);
+        }
+
+        .menu-btn-text {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2.5rem;
+            align-items: center;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+            transition: 0.3s;
+        }
+
+        .login-btn {
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            padding: 0.5rem 1.5rem;
+            transition: 0.3s;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+
+        .login-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .nav-btn {
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: 0.3s;
+            border-radius: 50px;
+        }
+
+        .nav-btn:hover {
+            background: var(--text-primary);
+        }
+
+        /* =========================================
+           CATALOG HERO HEADER
+           ========================================= */
+        .catalog-header {
+            padding: 12rem 8rem 4rem 8rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .catalog-header h1 {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .catalog-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           CATEGORY FILTERS
+           ========================================= */
+        .filter-section {
+            padding: 0 8rem 4rem 8rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(74, 14, 23, 0.2);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn.active {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            border-color: var(--text-primary);
+        }
+
+        .filter-btn:not(.active):hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* =========================================
+           PREMIUM PRODUCT GRID & CARDS
+           ========================================= */
+        .catalog-grid-section {
+            padding: 0 8rem 8rem 8rem;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(74, 14, 23, 0.05);
+            transition: 0.4s ease;
+            cursor: pointer;
+            border: 1px solid rgba(74, 14, 23, 0.05);
+        }
+
+        .product-card:hover {
+            box-shadow: 0 20px 40px rgba(74, 14, 23, 0.12);
+            transform: translateY(-10px);
+        }
+
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image-wrapper img {
+            width: 85%;
+            height: 85%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .product-card:hover .card-image-wrapper img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: var(--text-primary);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .badge-gold {
+            background: var(--accent-gold);
+            color: var(--text-primary);
+        }
+
+        /* Advanced Hover CTA */
+        .card-hover-cta {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(74, 14, 23, 0.1);
+            color: var(--text-primary);
+            padding: 0.8rem 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .product-card:hover .card-hover-cta {
+            bottom: 1.5rem;
+        }
+
+        .card-hover-cta:hover {
+            background: var(--text-primary);
+            color: #fff;
+        }
+
+        .card-details {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            background: #fff;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .card-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+
+        /* =========================================
+           NEW UPDATED FOOTER DESIGN
+           ========================================= */
+        .site-footer {
+            background-color: #0d0b0a;
+            /* Dark sleek background */
+            color: #ebeae7;
+            padding: 8rem 8rem 4rem 8rem;
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-body);
+        }
+
+        .footer-decor-item {
+            position: absolute;
+            opacity: 0.8;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .footer-decor-tl {
+            top: -30px;
+            left: -30px;
+            width: 250px;
+            transform: rotate(-15deg);
+        }
+
+        .footer-decor-tr {
+            top: 20px;
+            right: -50px;
+            width: 280px;
+        }
+
+        .footer-plus {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .plus-left {
+            top: 25%;
+            left: 10%;
+        }
+
+        .plus-right {
+            top: 40%;
+            right: 5%;
+        }
+
+        .footer-main-heading {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 4.8rem;
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.1;
+            margin-bottom: 7rem;
+            color: #d1cbc1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-middle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6rem;
+            padding-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-tagline {
+            flex: 1;
+        }
+
+        .footer-tagline h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            color: #f4f4f4;
+        }
+
+        .footer-links-grid {
+            flex: 2;
+            display: flex;
+            justify-content: flex-end;
+            gap: 4rem;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-column a {
+            font-size: 0.75rem;
+            color: #9c9a96;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-gold);
+            transform: translateX(3px);
+        }
+
+        .footer-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            font-size: 1.6rem;
+            letter-spacing: 1.5px;
+            color: #fff;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-brand span {
+            font-size: 1rem;
+            font-family: var(--font-body);
+            margin-left: 2px;
+            margin-top: -2px;
+        }
+
+        .footer-copyright {
+            font-size: 0.75rem;
+            color: #9c9a96;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social-links a {
+            color: #d1cbc1;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .footer-middle-row {
+                flex-direction: column;
+                gap: 4rem;
+            }
+
+            .footer-links-grid {
+                justify-content: flex-start;
+                width: 100%;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+
+            .footer-main-heading {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo"><i class="fa-solid fa-snowflake"></i> Jewell</div>
+        <div class="nav-center-pill">
+            <div class="menu-btn-text"><i class="fa-solid fa-bars-staggered"></i> MENU</div>
+            <nav class="nav-links">
+                <a href="index1.html">Home</a><a href="#">About</a><a href="#">Services</a><a href="#">Catlogue</a>
+            </nav>
+        </div>
+        <div class="auth-buttons">
+            <a href="#" class="login-btn">Log In</a>
+            <a href="#" class="get-started-btn nav-btn">Get Started</a>
+        </div>
+    </header>
+
+    <section class="catalog-header">
+        <h1 class="gsap-header-title">Curated Brilliance</h1>
+        <p class="gsap-header-desc">Explore our entire collection of handcrafted masterpieces. Filter by category to
+            find the perfect expression of your unique style.</p>
+    </section>
+
+    <section class="filter-section gsap-filters">
+        <button class="filter-btn active magnetic-btn">All Collections</button>
+        <button class="filter-btn magnetic-btn">Rings</button>
+        <button class="filter-btn magnetic-btn">Necklaces</button>
+        <button class="filter-btn magnetic-btn">Earrings</button>
+        <button class="filter-btn magnetic-btn">Bracelets</button>
+    </section>
+
+    <section class="catalog-grid-section">
+        <div class="product-grid">
+
+            <div class="product-card gsap-card">
+                <div class="card-badge">New Arrival</div>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1603561596112-0a132b757442?q=80&w=800&auto=format&fit=crop"
+                        alt="Diamond Ring">
+                    <div class="card-hover-cta"><i class="fa-solid fa-bag-shopping"></i> Quick Add</div>
+                </div>
+                <div class="card-details">
+                    <span class="card-category">Rings</span>
+                    <h3 class="card-title">Aurelia Diamond Solitaire</h3>
+                    <div class="card-price">$ 1,250.00</div>
+                </div>
+            </div>
+
+            <div class="product-card gsap-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1599643478514-4a4e09b52342?q=80&w=800&auto=format&fit=crop"
+                        alt="Gold Pendant">
+                    <div class="card-hover-cta"><i class="fa-solid fa-bag-shopping"></i> Quick Add</div>
+                </div>
+                <div class="card-details">
+                    <span class="card-category">Necklaces</span>
+                    <h3 class="card-title">Lumina Gold Pendant</h3>
+                    <div class="card-price">$ 890.00</div>
+                </div>
+            </div>
+
+            <div class="product-card gsap-card">
+                <div class="card-badge badge-gold">Bestseller</div>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=800&auto=format&fit=crop"
+                        alt="Gold Hoops">
+                    <div class="card-hover-cta"><i class="fa-solid fa-bag-shopping"></i> Quick Add</div>
+                </div>
+                <div class="card-details">
+                    <span class="card-category">Earrings</span>
+                    <h3 class="card-title">Classic Bold Hoops</h3>
+                    <div class="card-price">$ 450.00</div>
+                </div>
+            </div>
+
+            <div class="product-card gsap-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=800&auto=format&fit=crop"
+                        alt="Tennis Bracelet">
+                    <div class="card-hover-cta"><i class="fa-solid fa-bag-shopping"></i> Quick Add</div>
+                </div>
+                <div class="card-details">
+                    <span class="card-category">Bracelets</span>
+                    <h3 class="card-title">Eternity Tennis Bracelet</h3>
+                    <div class="card-price">$ 3,100.00</div>
+                </div>
+            </div>
+
+            <div class="product-card gsap-card">
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f6612080c?q=80&w=800&auto=format&fit=crop"
+                        alt="Sapphire Ring">
+                    <div class="card-hover-cta"><i class="fa-solid fa-bag-shopping"></i> Quick Add</div>
+                </div>
+                <div class="card-details">
+                    <span class="card-category">Rings</span>
+                    <h3 class="card-title">Royal Sapphire Halo</h3>
+                    <div class="card-price">$ 2,450.00</div>
+                </div>
+            </div>
+
+            <div class="product-card gsap-card">
+                <div class="card-badge">Limited Edition</div>
+                <div class="card-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?q=80&w=800&auto=format&fit=crop"
+                        alt="Pearl Drop Earrings">
+                    <div class="card-hover-cta"><i class="fa-solid fa-bag-shopping"></i> Quick Add</div>
+                </div>
+                <div class="card-details">
+                    <span class="card-category">Earrings</span>
+                    <h3 class="card-title">Baroque Pearl Drops</h3>
+                    <div class="card-price">$ 620.00</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="site-footer">
+
+        <div class="footer-plus plus-left">+</div>
+        <div class="footer-plus plus-right">+</div>
+
+        <div class="footer-middle-row">
+            <div class="footer-tagline gsap-f-tagline">
+                <h3>Own Your Bold Look with<br>Confidence Daily</h3>
+            </div>
+
+            <div class="footer-links-grid gsap-f-links">
+                <div class="footer-column">
+                    <a href="#">ABOUT US</a>
+                    <a href="#">OUR SHOP</a>
+                    <a href="#">ALL BRANDS</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">CORPORATE RESPONSIBILITY</a>
+                    <a href="#">COMPANY POLICIES</a>
+                    <a href="#">JEWELRY INFORMATION</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">PRODUCT RECALLS</a>
+                    <a href="#">REQUEST CATALOG</a>
+                    <a href="#">NEWSLETTER</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-row gsap-f-bottom">
+            <div class="footer-brand">GIDJEWELS<span>+</span></div>
+            <div class="footer-copyright">GIDJEWELS By Reale 2025</div>
+            <div class="footer-social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-solid fa-globe"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            /* =========================================
+               1. NAVBAR INTERACTIVE PILL (Reused)
+               ========================================= */
+            const navPill = document.querySelector('.nav-center-pill');
+            const menuText = document.querySelector('.menu-btn-text');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            gsap.set(navLinks, { display: "none", opacity: 0 });
+            gsap.set(navItems, { y: 15, opacity: 0 });
+
+            const navHoverTl = gsap.timeline({ paused: true });
+            navHoverTl.to(navPill, { width: 440, duration: 0.5, ease: "power4.inOut" }, 0)
+                .to(menuText, { y: -20, opacity: 0, duration: 0.3, ease: "power2.in", display: "none" }, 0)
+                .to(navLinks, { display: "flex", opacity: 1, duration: 0.1 }, 0.2)
+                .to(navItems, { y: 0, opacity: 1, stagger: 0.05, duration: 0.4, ease: "back.out(1.5)" }, 0.25);
+
+            navPill.addEventListener('mouseenter', () => navHoverTl.play());
+            navPill.addEventListener('mouseleave', () => navHoverTl.reverse());
+
+            // Navbar Fade In
+            gsap.from(".navbar", { y: -30, opacity: 0, duration: 1, ease: "power3.out" });
+
+            /* =========================================
+               2. CATALOG HERO REVEAL
+               ========================================= */
+            gsap.from(".gsap-header-title", {
+                y: 50, opacity: 0, duration: 1.2, ease: "power3.out", delay: 0.2
+            });
+            gsap.from(".gsap-header-desc", {
+                y: 30, opacity: 0, duration: 1, ease: "power3.out", delay: 0.5
+            });
+
+            /* =========================================
+               3. MAGNETIC FILTER BUTTONS & REVEAL
+               ========================================= */
+            gsap.from(".filter-btn", {
+                y: 20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "back.out(1.5)", delay: 0.7
+            });
+
+            const magneticBtns = document.querySelectorAll('.magnetic-btn');
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+
+                    gsap.to(btn, {
+                        x: x * 0.3, // Intensity of magnet effect
+                        y: y * 0.3,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" });
+                });
+            });
+
+            /* =========================================
+               4. PRODUCT CARDS STAGGER SCROLL
+               ========================================= */
+            const cards = gsap.utils.toArray('.gsap-card');
+
+            cards.forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    y: 60,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    delay: (i % 3) * 0.15 // Staggered effect across grid columns
+                });
+            });
+
+            /* =========================================
+               5. NEW FOOTER ANIMATIONS WITH REVERSE
+               ========================================= */
+
+            // Animate the main heading: scale up and fade in
+            gsap.fromTo(".gsap-f-heading",
+                { opacity: 0, scale: 0.9, y: 50 },
+                {
+                    scrollTrigger: {
+                        trigger: ".site-footer",
+                        start: "top 80%",
+                        toggleActions: "play reverse play reverse" // plays forward going down, reverses going up
+                    },
+                    opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power4.out"
+                }
+            );
+
+            // Slide in tagline from the left
+            gsap.fromTo(".gsap-f-tagline",
+                { opacity: 0, x: -50 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-middle-row",
+                        start: "top 85%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, x: 0, duration: 1, ease: "power3.out"
+                }
+            );
+
+            // Stagger the link columns up
+            gsap.fromTo(".gsap-f-links .footer-column",
+                { opacity: 0, y: 40 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-middle-row",
+                        start: "top 85%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out"
+                }
+            );
+
+            // Bottom bar fade up
+            gsap.fromTo(".gsap-f-bottom",
+                { opacity: 0, y: 20 },
+                {
+                    scrollTrigger: {
+                        trigger: ".footer-bottom-row",
+                        start: "top 90%",
+                        toggleActions: "play reverse play reverse"
+                    },
+                    opacity: 1, y: 0, duration: 1, ease: "power2.out"
+                }
+            );
+
+            // Parallax effect on corner decor icons
+            gsap.to(".footer-decor-item", {
+                scrollTrigger: {
+                    trigger: ".site-footer",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                },
+                y: -40, rotation: 5
+            });
+
+        });
+    </script>
+</body>
+
+</html>
